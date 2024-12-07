@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="wrapper"
+        class="w-screen h-screen bg-[url(images/background.jpg)] bg-cover flex overflow-hidden justify-center items-center">
+        <div class="container relative text-white border backdrop-blur-[10px] bg-[rgba(255,255,255,.1)] p-6 lg:max-w-[450px] max-w-[300px] lg:min-h-[500px] h-[450px] border-slate-400 rounded-xl">
+            
+            <div class="search-box relative w-full h-10 border border-opacity-10 border-sky-500 flex items-center rounded">
+                <i class="fa-solid fa-location-dot absolute left-2 text-lg bg-transparent"></i>
+                <input type="text" placeholder="Enter Your City"
+                    class="placeholder:text-white placeholder:capitalize placeholder:font-normal bg-transparent w-full h-full absolute p-8 pl-10 outline-none uppercase font-extrabold">
+                <button class="absolute right-2 text-lg"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div class="weather-box flex flex-col items-center relative">
+                <img src="images/cloud.png" class="w-3/5 mt-3" alt="">
+                <p class="temperature text-[4rem] font-extrabold">16<span class="absolute mt-3 font-bold text-[2rem]">&deg;C</span></p>
+                <p class="description font-bold text-2xl">Broken Clouds</p>
+            </div>
+
+            <div class="weather-details flex justify-around mt-7 font-medium text-md">
+                <div class="humidity-details flex items-center gap-3">
+                    <i class="fa-solid fa-water font-bold text-xl"></i>
+                    <div class="humidity">
+                        <p>0%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+
+                <div class="wind-details flex items-center gap-3">
+                    <i class="fa-solid fa-wind text-xl"></i>
+                    <div class="wind">
+                        <p>0<span>Km/h</span></p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+            <footer class="absolute left-0 bottom-0 text-[skyblue]  p-1 w-full text-center font-light font-serif">
+                <p>Made With &hearts; By @rohit.web</p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
