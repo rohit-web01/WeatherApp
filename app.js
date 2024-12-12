@@ -24,7 +24,7 @@ async function getWeather(city){
 
 function updateUI(data){
     if(data.cod == '404'){
-        container.style.height = '350px';
+        container.style.height = '450px';
         error404.classList.remove('hidden');
         weatherBox.classList.add("hidden");
         weatherDetails.classList.add("hidden");
@@ -32,7 +32,7 @@ function updateUI(data){
     }
 
     error404.classList.add('hidden');
-    container.style.height = '430px'; 
+    container.style.height = '530px'; 
     weatherBox.classList.remove("hidden");
     weatherDetails.classList.remove("hidden");
     
