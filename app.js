@@ -1,4 +1,8 @@
+let container = document.querySelector(".container")
 let search = document.querySelector(".search");
+let weatherBox = document.querySelector(".weather-box");
+let weatherDetails = document.querySelector(".weather-details");
+let error404 = document.querySelector(".not-found");
 
 search.addEventListener("click", ()=>{
     let city = document.querySelector(".city").value;
@@ -19,6 +23,20 @@ async function getWeather(city){
 }
 
 function updateUI(data){
+    if(data.cod == '404'){
+        container.style.height = '350px';
+        error404.classList.remove('hidden');
+        weatherBox.classList.add("hidden");
+        weatherDetails.classList.add("hidden");
+        return;
+    }
+
+    error404.classList.add('hidden');
+    container.style.height = '430px'; 
+    weatherBox.classList.remove("hidden");
+    weatherDetails.classList.remove("hidden");
+    
+
     let image = document.querySelector('.weather-box img');
     let temperature = document.querySelector('.weather-box .temperature .temp');
     let description = document.querySelector('.weather-box .description');
@@ -30,7 +48,7 @@ function updateUI(data){
             image.src = 'images/clear.png';
             break;
 
-        case 'Cloud':
+        case 'Clouds':
             image.src = 'images/cloud.png';
             break;
 
@@ -44,13 +62,18 @@ function updateUI(data){
     
         case 'Snow':
             image.src = 'images/snow.png';
+            break;
+
+        case 'Haze':
+            image.src = 'images/mist.png';
 
         default:
+            image.src = 'images/cloud.png';
             break;
     }
 
     temperature.textContent = Math.floor(data.main.temp);
-    description.textContent = data.weather[0].main;
+    description.innerHTML = data.weather[0].description;
     humidity.textContent = data.main.humidity+'%';
     wind.textContent = data.wind.speed+' Km/h';
 
